@@ -5,7 +5,7 @@
     <version>2.8.3</version>
     <authors>Vahid Nasiri</authors>
     <owners>Vahid Nasiri</owners>
-    <licenseUrl>https://github.com/VahidN/PdfReport/LICENSE.md</licenseUrl>
+    <licenseUrl>https://github.com/VahidN/PdfReport/blob/master/LICENSE.md</licenseUrl>
     <projectUrl>https://github.com/VahidN/PdfReport</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
