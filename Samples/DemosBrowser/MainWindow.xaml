@@ -1,0 +1,11 @@
+﻿<Window x:Class="DemosBrowser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Views="clr-namespace:DemosBrowser.Views"
+        Background="#FF393939" FontFamily="Tahoma"        
+        Title="PdfRpt Demos Browser" Height="500" Width="700"  WindowState="Maximized"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Views:Browser />
+    </Grid>
+</Window>

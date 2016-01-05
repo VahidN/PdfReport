@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d4ab1848-07e6-4bc4-9b79-a3da169916c9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1041/PdfService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PdfService.xsd" MetadataType="Schema" ID="873eae27-c1b1-4f2c-a4e5-b8b7c8d246b7" SourceId="1" SourceUrl="http://localhost:1041/PdfService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PdfService1.xsd" MetadataType="Schema" ID="494757bf-6a9e-4024-8e15-50efb8b42890" SourceId="1" SourceUrl="http://localhost:1041/PdfService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PdfService.disco" MetadataType="Disco" ID="b928d629-a4c0-4e31-9c5d-21156908c530" SourceId="1" SourceUrl="http://localhost:1041/PdfService.svc?disco" />
+    <MetadataFile FileName="PdfService.wsdl" MetadataType="Wsdl" ID="0092e568-42e1-4152-9976-1c633dc7f9a9" SourceId="1" SourceUrl="http://localhost:1041/PdfService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="PdfService1.wsdl" MetadataType="Wsdl" ID="0d3b56c0-bc5f-401a-abe5-53bb14085490" SourceId="1" SourceUrl="http://localhost:1041/PdfService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

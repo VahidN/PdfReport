@@ -1,0 +1,8 @@
+﻿<Window x:Class="WpfPdfViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" WindowState="Maximized" Height="350" Width="525">
+    <Grid>
+        <WindowsFormsHost x:Name="WindowsFormsHost1" />
+    </Grid>
+</Window>

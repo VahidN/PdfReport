@@ -1,0 +1,9 @@
+﻿<Window x:Class="WpfAppTests.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Pdf Report" Height="495" WindowState="Maximized" 
+        WindowStartupLocation="CenterScreen" Width="703">
+    <Grid>
+        <WebBrowser x:Name="WebBrowser1"/>
+    </Grid>
+</Window>

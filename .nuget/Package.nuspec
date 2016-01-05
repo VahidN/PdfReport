@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>PdfReport</id>
+    <version>2.8.2</version>
+    <authors>Vahid Nasiri</authors>
+    <owners>Vahid Nasiri</owners>
+    <licenseUrl>https://github.com/VahidN/PdfReport/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/VahidN/PdfReport</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>PdfReport is a code first reporting engine, which is built on top of the iTextSharp and EPPlus libraries.
+It's compatible with both .NET 3.5+ Web and Windows applications.</description>
+    <tags>PdfReport Excel Export iTextSharp PDF Report Reporting Persian</tags>
+    <dependencies>
+      <group>
+        <dependency id="iTextSharp" version="5.5.7"/>
+		<dependency id="itextsharp.pdfa" version="5.5.7"/>
+		<dependency id="itextsharp.xmlworker" version="5.5.7"/>
+		<dependency id="EPPlus" version="4.0.4"/>
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\Bin\Release\NET35\PdfRpt.dll" target="lib\net35" />
+    <file src="..\Bin\Release\NET35\PdfRpt.XML" target="lib\net35" />
+
+    <file src="..\Bin\Release\NET40\PdfRpt.dll" target="lib\net40" />
+    <file src="..\Bin\Release\NET40\PdfRpt.XML" target="lib\net40" />
+
+    <file src="..\Bin\Release\NET45\PdfRpt.dll" target="lib\net45" />
+    <file src="..\Bin\Release\NET45\PdfRpt.XML" target="lib\net45" />
+  </files>
+</package>

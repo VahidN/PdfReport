@@ -1,0 +1,3 @@
+Important prerequisites to compile and run the samples (because of using different project types):
+- Adobe Reader or Acrobat (to show the results).
+- VS 2013

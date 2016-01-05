@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = "jqGrid to PDF";
+}
+
+<div dir="rtl" align="center">
+    <div id="rsperror"></div>
+    <table id="list" cellpadding="0" cellspacing="0"></table>
+    <div id="pager" style="text-align:center;"></div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#list').jqGrid({
+                caption: "jqGrid To PDF",
+                //url from wich data should be requested
+                url: '@Url.Action("GetProducts","Home")',
+                //type of data
+                datatype: 'json',
+                jsonReader: {
+                    root: "Rows",
+                    page: "Page",
+                    total: "Total",
+                    records: "Records",
+                    repeatitems: true,
+                    userdata: "UserData",
+                    id: "Id",
+                    cell: "RowCells"
+                },
+                //url access method type
+                mtype: 'GET',
+                //columns names
+                colNames: ['Id', 'Name', 'Add date', 'Price'],
+                //columns model
+                colModel: [
+                    {
+                        name: 'Id', index: 'Id', align: 'right', width: 70,
+                        editable: false
+                    },
+                    {
+                        name: 'Name', index: 'Name', align: 'right', width: 100,
+                        search: true, stype: 'text',
+                        searchoptions: {
+                            dataInit: function (elem) {
+                                // http://jqueryui.com/autocomplete/
+                                $(elem).autocomplete({
+                                    source: '@Url.Action("GetProductNames","Home")',
+                                    minLength: 2,
+                                    select: function (event, ui) {
+                                        $(elem).val(ui.item.value);
+                                        $(elem).trigger('change');
+                                    }
+                                });
+                            }
+                        }
+                    },
+                    {
+                        name: 'AddDate', index: 'AddDate', align: 'center', width: 100,
+                        search: true, stype: 'text',
+                        searchoptions: {
+                            maxlength: 10,
+                            dataInit: function (el) {
+                                setTimeout(function () {
+                                    $(el).datepicker({dateFormat:'yy-mm-dd'});
+                                }, 50);
+                            },
+                            onchange: "$(this).trigger('change');",
+                            onkeyup: "$(this).trigger('change');"
+                        }
+                    },
+                        {
+                            name: 'Price', index: 'Price', align: 'center', width: 100,
+                            formatter: 'currency',
+                            formatoptions:
+                            {
+                                decimalSeparator: '.',
+                                thousandsSeparator: ',',
+                                decimalPlaces: 2,
+                                prefix: '$'
+                            },
+                            search: true, stype: 'text',
+                            searchoptions: {
+                                dir: 'ltr',
+                                onchange: "$(this).trigger('change');",
+                                onkeyup: "$(this).trigger('change');",
+                                dataInit: function (elem) {
+                                    // http://jquerypriceformat.com/
+                                    $(elem).priceFormat({
+                                        prefix: '',
+                                        thousandsSeparator: ',',
+                                        clearPrefix: true,
+                                        centsSeparator: '',
+                                        centsLimit: 0
+                                    });
+                                }
+                            }
+                        }
+                ],
+                //pager for grid
+                pager: $('#pager'),
+                //number of rows per page
+                rowNum: 10,
+                rowList: [10, 20, 50, 100],
+                //initial sorting column
+                sortname: 'Id',
+                //initial sorting direction
+                sortorder: 'asc',
+                //we want to display total records count
+                viewrecords: true,
+                width: 'auto',
+                height: 'auto',
+                hidegrid: false,
+                direction: "ltr",
+                gridview: true,
+                rownumbers: true,
+                loadComplete: function () {
+                    //change alternate rows color
+                    $("tr.jqgrow:odd").css("background", "#E0E0E0");
+                },
+                loadError: function (xhr, st, err) {
+                    jQuery("#rsperror").html("Type: " + st + "; Response: " + xhr.status + " " + xhr.statusText);
+                }
+            }).navGrid(
+                        '#pager',
+                        //enabling buttons
+                        { add: false, del: false, edit: false, search: true },
+                        //edit option
+                        {},
+                        //add options
+                        {},
+                        //delete options
+                        {},
+                        {
+                            // search options
+                            multipleSearch: true,
+                            closeOnEscape: true,
+                            closeAfterSearch: true,
+                            ignoreCase: true,
+                            sopt: ['eq', 'ne', 'lt', 'le', 'gt', 'ge', 'bw', 'bn', 'in', 'ni', 'ew', 'en', 'cn', 'nc']
+                        }).jqGrid('navButtonAdd', '#pager', {
+                            caption: "", buttonicon: "ui-icon-print", title: "Export to PDF",
+                            onClickButton: function () {
+                                $("#list").jqGrid('excelExport', { url: '@Url.Action("GetProducts", "Home")' });
+                            }
+                        });
+        });
+    </script>
+}

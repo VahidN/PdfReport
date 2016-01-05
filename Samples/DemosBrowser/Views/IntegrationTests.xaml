@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="DemosBrowser.Views.IntegrationTests"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Behaviors="clr-namespace:DemosBrowser.Behaviors"     
+             xmlns:Converters="clr-namespace:DemosBrowser.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <DataTemplate x:Key="myListItem" >
+            <Border BorderBrush="Gray" Width="375" Height="auto" 
+                    Background="#3d3d3d" 
+                    BorderThickness="1" CornerRadius="6">
+                <Grid Margin="7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                        <TextBlock Foreground="LightGreen" Text="Sample:" Margin="2" />
+                        <TextBlock Text="{Binding TestName, Mode=TwoWay}" Margin="2" />
+                    </StackPanel>
+
+                    <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                        <TextBlock Foreground="LightGreen" Text="Elapsed Time:" Margin="2" />
+                        <TextBlock Text="{Binding ElapsedTime, Mode=TwoWay}" Margin="2" />
+                    </StackPanel>
+
+                    <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                        <TextBlock Foreground="LightGreen" Text="Memory Usage:" Margin="2" />
+                        <TextBlock Text="{Binding MemoryUsage, Mode=TwoWay}" Margin="2" />
+                    </StackPanel>
+
+                    <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                        <TextBlock Foreground="LightGreen" Text="File Size:" Margin="2" />
+                        <TextBlock Text="{Binding FileSize, Mode=TwoWay}" Margin="2" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="500" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ToolBar Grid.Row="0" TabIndex="1" Margin="5">
+            <Button  Command="{Binding DoStartTests}" ToolTip="Start">
+                <Image Source="/Images/run.png"  />
+            </Button>
+            <Separator/>
+        </ToolBar>
+
+        <ListView  
+                 Grid.Row="1"
+                 Margin="5" 
+                 Behaviors:AutoScrollListView.AutoScroll="True"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 SelectedItem="{Binding BrowserGuiData.SelectedSampleTestFile, Mode=TwoWay}"
+                 ItemsSource="{Binding BrowserGuiData.IntegrationTests, Mode=TwoWay}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Integration tests" CellTemplate="{StaticResource myListItem}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <GridSplitter
+                 Grid.Row="2"
+                 HorizontalAlignment="Stretch" 
+                 VerticalAlignment="Top"              
+                 ShowsPreview="true"
+                 ResizeDirection="Rows"
+                 Panel.ZIndex="1"
+                 Height="3" />
+        <WindowsFormsHost 
+                 Grid.Row="2"
+                 Margin="5" 
+                 Visibility="{Binding BrowserGuiData.SampleControlVisibility, Mode=TwoWay}"
+                 Behaviors:WindowsFormsHostBehavior.BindableChild="{Binding BrowserGuiData.AcroSamplePdf, Mode=TwoWay}"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="DemosBrowser.Views.Browser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:extToolkit="clr-namespace:Microsoft.Windows.Controls"             
+             xmlns:Vm="clr-namespace:DemosBrowser.ViewModels"             
+             xmlns:Behaviors="clr-namespace:DemosBrowser.Behaviors"     
+             xmlns:Views="clr-namespace:DemosBrowser.Views"
+             xmlns:syntxhl="clr-namespace:DemosBrowser.Controls.SourceCodeEditor"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <UserControl.Resources>        
+        <Vm:BrowserViewModel x:Key="vmBrowserViewModel" />
+    </UserControl.Resources>
+    <extToolkit:BusyIndicator IsBusy="{Binding BrowserGuiData.IsBusy}"                                                             
+                              DataContext="{Binding Source={StaticResource vmBrowserViewModel}}"
+							  BusyContent="Please wait..." 
+							  DisplayAfter="00:00:01">
+        <TabControl Margin="7" TabStripPlacement="Left">
+            <TabItem Header="Demos Browser">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MinWidth="200" Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Grid.Column="0" Margin="5,5,2,5">
+                        <GroupBox.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Demos (" />
+                                <TextBlock Text="{Binding BrowserGuiData.SamplesCount}" />
+                                <TextBlock Text=")" />
+                            </StackPanel>
+                        </GroupBox.Header>
+                        <Views:DemosList />
+                    </GroupBox>
+                    <GroupBox Header="Result" Grid.Column="1" Margin="1,5,5,5">
+                        <TabControl Margin="5" TabStripPlacement="Left">
+                            <TabItem Header="Output">
+                                <Views:Output />
+                            </TabItem>
+                            <TabItem Header="Source code">
+                                <Views:SourceCode />
+                            </TabItem>
+                        </TabControl>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Integration tests">
+                <Views:IntegrationTests />
+            </TabItem>
+        </TabControl>
+    </extToolkit:BusyIndicator>
+</UserControl>

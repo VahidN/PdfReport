@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7151EF82-995E-429B-BBA8-A3EE7FBD3536}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PdfRpt</RootNamespace>
+    <AssemblyName>PdfRpt</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Framework Condition=" '$(Framework)' == '' ">NET35</Framework>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Framework)' == 'NET35' And '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\$(Configuration)\$(Framework)\</OutputPath>
+    <DefineConstants>TRACE;NET35</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\bin\$(Configuration)\$(Framework)\PdfRpt.XML</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Framework)' == 'NET35' And '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\$(Configuration)\$(Framework)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NET35</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Framework)' == 'NET40' And '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\$(Configuration)\$(Framework)\</OutputPath>
+    <DefineConstants>TRACE;NET40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\bin\$(Configuration)\$(Framework)\PdfRpt.XML</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Framework)' == 'NET40' And '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\$(Configuration)\$(Framework)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NET40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\bin\$(Configuration)\$(Framework)\PdfRpt.XML</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Framework)' == 'NET45' And '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\$(Configuration)\$(Framework)\</OutputPath>
+    <DefineConstants>TRACE;NET45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\bin\$(Configuration)\$(Framework)\PdfRpt.XML</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Framework)' == 'NET45' And '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\$(Configuration)\$(Framework)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NET45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\bin\$(Configuration)\$(Framework)\PdfRpt.XML</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=4.0.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.0.4\lib\net20\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.7.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.7\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp.pdfa, Version=5.5.7.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.pdfa.5.5.7\lib\itextsharp.pdfa.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.7.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.7\lib\itextsharp.xmlworker.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <HintPath>C:\Program Files\Reference Assemblies\Microsoft\Framework\v3.5\System.ComponentModel.DataAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AggregateProvider.cs" />
+    <Compile Include="Aggregates\Numbers\Average.cs" />
+    <Compile Include="Aggregates\Numbers\Empty.cs" />
+    <Compile Include="Aggregates\Numbers\Maximum.cs" />
+    <Compile Include="Aggregates\Numbers\Minimum.cs" />
+    <Compile Include="Aggregates\NamespaceDoc.cs" />
+    <Compile Include="Aggregates\Numbers\NamespaceDoc.cs" />
+    <Compile Include="Aggregates\Numbers\StdDev.cs" />
+    <Compile Include="Aggregates\Numbers\Sum.cs" />
+    <Compile Include="Aggregates\Numbers\Variance.cs" />
+    <Compile Include="Calendar\CalendarAttributes.cs" />
+    <Compile Include="Calendar\CalendarData.cs" />
+    <Compile Include="Calendar\CalendarNames.cs" />
+    <Compile Include="Calendar\CalendarType.cs" />
+    <Compile Include="Calendar\DayInfo.cs" />
+    <Compile Include="Calendar\DaysInfoToCalendarData.cs" />
+    <Compile Include="Calendar\GradientCellEvent.cs" />
+    <Compile Include="Calendar\MonthCalendar.cs" />
+    <Compile Include="Calendar\MonthTableCell.cs" />
+    <Compile Include="ColumnsItemsTemplates\AnnotationField.cs" />
+    <Compile Include="ColumnsItemsTemplates\CheckmarkField.cs" />
+    <Compile Include="ColumnsItemsTemplates\InlineField.cs" />
+    <Compile Include="ColumnsItemsTemplates\MonthCalendarField.cs" />
+    <Compile Include="ColumnsItemsTemplates\PdfTemplateField.cs" />
+    <Compile Include="ColumnsItemsTemplates\SymbolField.cs" />
+    <Compile Include="ColumnsItemsTemplates\ProgressBarField.cs" />
+    <Compile Include="ColumnsItemsTemplates\NamespaceDoc.cs" />
+    <Compile Include="ColumnsItemsTemplates\WingdingsSymbolField.cs" />
+    <Compile Include="ColumnsItemsTemplates\XHtmlField.cs" />
+    <Compile Include="Core\Contracts\AdobeZapfDingbats.cs" />
+    <Compile Include="Core\Contracts\AggregateFunction.cs" />
+    <Compile Include="Core\Contracts\AggregateValuePosition.cs" />
+    <Compile Include="Core\Contracts\AnnotationFieldData.cs" />
+    <Compile Include="Core\Contracts\AttachmentFile.cs" />
+    <Compile Include="Core\Contracts\FlushType.cs" />
+    <Compile Include="Core\Contracts\FooterBasicProperties.cs" />
+    <Compile Include="Core\Contracts\FooterData.cs" />
+    <Compile Include="Core\Contracts\HeaderBasicProperties.cs" />
+    <Compile Include="Core\Contracts\HeaderData.cs" />
+    <Compile Include="Core\Contracts\HorizontalStackPanelPreferences.cs" />
+    <Compile Include="Core\Contracts\IDataExporter.cs" />
+    <Compile Include="Core\Contracts\ImportedPageInfo.cs" />
+    <Compile Include="Core\Contracts\InlineFieldData.cs" />
+    <Compile Include="Core\Contracts\PdfGrid.cs" />
+    <Compile Include="Core\Contracts\PdfPageSize.cs" />
+    <Compile Include="Core\Contracts\TableType.cs" />
+    <Compile Include="Core\Contracts\Wingdings.cs" />
+    <Compile Include="Core\Contracts\XFooterBasicProperties.cs" />
+    <Compile Include="Core\Contracts\XHeaderBasicProperties.cs" />
+    <Compile Include="Core\Helper\ColorExtensions.cs" />
+    <Compile Include="Core\Helper\ExtractPdfFileAttachments.cs" />
+    <Compile Include="Core\Helper\FastReflection.cs" />
+    <Compile Include="Core\Helper\Hash.cs" />
+    <Compile Include="Core\Helper\HtmlToPdf\ImageProvider.cs" />
+    <Compile Include="Core\Helper\HtmlToPdf\RtlElementsCollector.cs" />
+    <Compile Include="Core\Helper\HtmlToPdf\SimpleElementsCollector.cs" />
+    <Compile Include="Core\Helper\HtmlToPdf\TotalPagesNumberXmlWorkerProcessor.cs" />
+    <Compile Include="Core\Helper\HtmlToPdf\UnicodeFontProvider.cs" />
+    <Compile Include="Core\Helper\HtmlToPdf\XmlWorkerUtils.cs" />
+    <Compile Include="Core\Helper\MergePdfDocuments.cs" />
+    <Compile Include="Core\Helper\PdfPageSizeToRectangle.cs" />
+    <Compile Include="Core\Helper\PersianNumber.cs" />
+    <Compile Include="Core\Helper\RunDirectionHelper.cs" />
+    <Compile Include="Core\Helper\SoftHttpContext.cs" />
+    <Compile Include="Core\Helper\HtmlToPdf\XmlWorkerHelper.cs" />
+    <Compile Include="DataAnnotations\FixedHeightAttribute.cs" />
+    <Compile Include="DataAnnotations\MinimumHeightAttribute.cs" />
+    <Compile Include="DataSources\GenericDataReaderDataSource.cs" />
+    <Compile Include="FluentInterface\AggregateFunctionBuilder.cs" />
+    <Compile Include="FluentInterface\ColumnItemsTemplateBuilder.cs" />
+    <Compile Include="FluentInterface\CustomRowsBuilder.cs" />
+    <Compile Include="FluentInterface\DefaultHeaderProviderBuilder.cs" />
+    <Compile Include="FluentInterface\GenericFontProviderBuilder.cs" />
+    <Compile Include="FluentInterface\HeaderCellsBuilder.cs" />
+    <Compile Include="FluentInterface\InjectCustomRowsBuilder.cs" />
+    <Compile Include="FluentInterface\InlineFieldBuilder.cs" />
+    <Compile Include="FluentInterface\InlineFooterProviderBuilder.cs" />
+    <Compile Include="FluentInterface\InlineHeaderProviderBuilder.cs" />
+    <Compile Include="FluentInterface\MainTableAdHocColumnsConventionsBuilder.cs" />
+    <Compile Include="FluentInterface\MainTableColumnsBuilder.cs" />
+    <Compile Include="FluentInterface\MainTableDataSourceBuilder.cs" />
+    <Compile Include="FluentInterface\MainTableEventsBuilder.cs" />
+    <Compile Include="FluentInterface\MainTableSummarySettingsBuilder.cs" />
+    <Compile Include="FluentInterface\MainTableTemplateBuilder.cs" />
+    <Compile Include="FluentInterface\PagesFooterBuilder.cs" />
+    <Compile Include="FluentInterface\PagesHeaderBuilder.cs" />
+    <Compile Include="FluentInterface\ColumnAttributesBuilder.cs" />
+    <Compile Include="FluentInterface\DataBuilder.cs" />
+    <Compile Include="FluentInterface\DataTemplate.cs" />
+    <Compile Include="Core\Contracts\EventsArguments.cs" />
+    <Compile Include="Core\Contracts\PdfXConformance.cs" />
+    <Compile Include="Core\Contracts\AnnotationIcon.cs" />
+    <Compile Include="Core\Contracts\HeadingCell.cs" />
+    <Compile Include="Core\Contracts\CompressionLevel.cs" />
+    <Compile Include="Core\Contracts\NonFullScreenPageMode.cs" />
+    <Compile Include="Core\Contracts\CellBasicProperties.cs" />
+    <Compile Include="Core\Contracts\CellRowData.cs" />
+    <Compile Include="Core\Contracts\CellSharedData.cs" />
+    <Compile Include="Core\Contracts\CompressionSettings.cs" />
+    <Compile Include="Core\Contracts\DocumentPermissions.cs" />
+    <Compile Include="Core\Contracts\EncryptionType.cs" />
+    <Compile Include="Core\Contracts\FileAttachment.cs" />
+    <Compile Include="Core\Contracts\GroupsPreferences.cs" />
+    <Compile Include="Core\Contracts\GroupType.cs" />
+    <Compile Include="Core\Contracts\PageOrientation.cs" />
+    <Compile Include="Core\Contracts\PagesDirection.cs" />
+    <Compile Include="Core\Contracts\MainTablePreferences.cs" />
+    <Compile Include="Core\Contracts\NamespaceDoc.cs" />
+    <Compile Include="Core\Contracts\BasicTemplate.cs" />
+    <Compile Include="ColumnsItemsTemplates\ByteArrayImageField.cs" />
+    <Compile Include="ColumnsItemsTemplates\HyperlinkField.cs" />
+    <Compile Include="ColumnsItemsTemplates\TextBlockField.cs" />
+    <Compile Include="Core\Contracts\CertificateFile.cs" />
+    <Compile Include="Core\Contracts\DiagonalWatermark.cs" />
+    <Compile Include="Core\Contracts\Encryption.cs" />
+    <Compile Include="Core\Contracts\PagePreferences.cs" />
+    <Compile Include="Core\Contracts\PasswordEncryption.cs" />
+    <Compile Include="Core\Contracts\PublicKeyEncryption.cs" />
+    <Compile Include="Core\Contracts\Signature.cs" />
+    <Compile Include="Core\Contracts\SigningInfo.cs" />
+    <Compile Include="Core\Contracts\SummaryLocation.cs" />
+    <Compile Include="Core\Contracts\TsaClient.cs" />
+    <Compile Include="Core\Contracts\VisibleSignature.cs" />
+    <Compile Include="Core\Contracts\TableColumnWidthType.cs" />
+    <Compile Include="Core\Contracts\PrintingPreferences.cs" />
+    <Compile Include="Core\Contracts\PdfVersion.cs" />
+    <Compile Include="Core\Contracts\PrintScaling.cs" />
+    <Compile Include="Core\Contracts\PrintSide.cs" />
+    <Compile Include="Core\Contracts\ViewerPageLayout.cs" />
+    <Compile Include="Core\Contracts\ViewerPageMode.cs" />
+    <Compile Include="Core\Contracts\ViewerPreferences.cs" />
+    <Compile Include="Core\Contracts\PdfViewerPreferences.cs" />
+    <Compile Include="Core\Helper\AggregateException.cs" />
+    <Compile Include="Core\Helper\ApplyDataAnnotations.cs" />
+    <Compile Include="Core\Helper\BackgroundImageTemplate.cs" />
+    <Compile Include="Core\Helper\DumpNestedProperties.cs" />
+    <Compile Include="Core\Helper\ElementsWidth.cs" />
+    <Compile Include="Core\Helper\DiagonalWatermarkManager.cs" />
+    <Compile Include="Core\Helper\ExcelHelper.cs" />
+    <Compile Include="Core\Helper\ExporterManager.cs" />
+    <Compile Include="Core\Helper\GradientBackground.cs" />
+    <Compile Include="Core\Helper\Guard.cs" />
+    <Compile Include="Core\Helper\HeaderFooterManager.cs" />
+    <Compile Include="Core\Helper\NamespaceDoc.cs" />
+    <Compile Include="Core\Helper\PdfConformance.cs" />
+    <Compile Include="Core\Helper\PropertyDataAnnotations.cs" />
+    <Compile Include="Core\Helper\StreamHelper.cs" />
+    <Compile Include="Core\Security\EncryptionWorker.cs" />
+    <Compile Include="Core\Security\NamespaceDoc.cs" />
+    <Compile Include="Core\Security\SignatureWriter.cs" />
+    <Compile Include="Core\Helper\TableCellDefinitionsExt.cs" />
+    <Compile Include="ColumnsItemsTemplates\ImageFilePathField.cs" />
+    <Compile Include="ColumnsItemsTemplates\BarcodeField.cs" />
+    <Compile Include="Core\Contracts\IColumnItemsTemplate.cs" />
+    <Compile Include="Core\Contracts\DocumentSecurity.cs" />
+    <Compile Include="Core\Contracts\AdHocColumnsConventions.cs" />
+    <Compile Include="Core\Contracts\IAggregateFunc.cs" />
+    <Compile Include="Core\Contracts\IPageFooter.cs" />
+    <Compile Include="Core\Contracts\CellData.cs" />
+    <Compile Include="Core\Contracts\HorizontalAlignment.cs" />
+    <Compile Include="Core\Contracts\IPageHeader.cs" />
+    <Compile Include="Core\Contracts\SummaryCellAttributes.cs" />
+    <Compile Include="Core\Contracts\SummaryCellSettings.cs" />
+    <Compile Include="Core\Contracts\MultipleColumnsPerPage.cs" />
+    <Compile Include="Core\Contracts\CellAttributes.cs" />
+    <Compile Include="Core\Contracts\VerticalTextAlignment.cs" />
+    <Compile Include="Core\Contracts\PdfRunDirection.cs" />
+    <Compile Include="Core\Contracts\CellType.cs" />
+    <Compile Include="Core\Contracts\ColumnAttributes.cs" />
+    <Compile Include="Core\Contracts\DocumentMargins.cs" />
+    <Compile Include="Core\Contracts\DocumentMetadata.cs" />
+    <Compile Include="Core\Contracts\IPdfReportData.cs" />
+    <Compile Include="Core\Contracts\IDataSource.cs" />
+    <Compile Include="Core\Contracts\Events.cs" />
+    <Compile Include="Core\Contracts\IPdfFont.cs" />
+    <Compile Include="Core\Contracts\DocumentFontStyle.cs" />
+    <Compile Include="Core\Contracts\ITableTemplate.cs" />
+    <Compile Include="Core\Contracts\DocumentPreferences.cs" />
+    <Compile Include="Core\Contracts\RowType.cs" />
+    <Compile Include="Core\Contracts\SharedData.cs" />
+    <Compile Include="Core\Contracts\LastRenderedRowData.cs" />
+    <Compile Include="Core\Helper\DocumentSettings.cs" />
+    <Compile Include="Core\Security\PfxData.cs" />
+    <Compile Include="Core\Security\PfxReader.cs" />
+    <Compile Include="Core\Helper\VectorImages.cs" />
+    <Compile Include="Core\PdfTable\AdHocPdfColumnDefinitions.cs" />
+    <Compile Include="Core\PdfTable\NamespaceDoc.cs" />
+    <Compile Include="DataAnnotations\CalculatedFieldFormulaAttribute.cs" />
+    <Compile Include="DataAnnotations\IncludedGroupFieldEqualityComparerAttribute.cs" />
+    <Compile Include="DataAnnotations\NamespaceDoc.cs" />
+    <Compile Include="DataAnnotations\AggregateFunctionAttribute.cs" />
+    <Compile Include="DataAnnotations\CellsHorizontalAlignmentAttribute.cs" />
+    <Compile Include="DataAnnotations\CustomAggregateFunctionAttribute.cs" />
+    <Compile Include="DataAnnotations\IncludeInGroupingAttribute.cs" />
+    <Compile Include="DataAnnotations\IsCalculatedFieldAttribute.cs" />
+    <Compile Include="DataAnnotations\IsVisibleAttribute.cs" />
+    <Compile Include="DataAnnotations\OrderAttribute.cs" />
+    <Compile Include="DataAnnotations\WidthAttribute.cs" />
+    <Compile Include="DataAnnotations\PropertyNameAttribute.cs" />
+    <Compile Include="DataAnnotations\ColumnItemsTemplateAttribute.cs" />
+    <Compile Include="DataSources\AccessDataReaderDataSource.cs" />
+    <Compile Include="DataSources\AnonymousTypeListDataSource.cs" />
+    <Compile Include="DataSources\DataTableDataSource.cs" />
+    <Compile Include="DataSources\ExcelDataReaderDataSource.cs" />
+    <Compile Include="DataSources\NamespaceDoc.cs" />
+    <Compile Include="DataSources\CrosstabDataSource.cs" />
+    <Compile Include="DataSources\CrosstabExtension.cs" />
+    <Compile Include="DataSources\OdbcDataReaderDataSource.cs" />
+    <Compile Include="DataSources\SqlDataReaderDataSource.cs" />
+    <Compile Include="DataSources\StronglyTypedListDataSource.cs" />
+    <Compile Include="DataSources\XmlDataSource.cs" />
+    <Compile Include="FluentInterface\XHtmlFooterProviderBuilder.cs" />
+    <Compile Include="FluentInterface\XHtmlHeaderProviderBuilder.cs" />
+    <Compile Include="FooterTemplates\InlineFooterProvider.cs" />
+    <Compile Include="FooterTemplates\NamespaceDoc.cs" />
+    <Compile Include="FooterTemplates\XHtmlFooterProvider.cs" />
+    <Compile Include="HeaderTemplates\DefaultHeaderProvider.cs" />
+    <Compile Include="Export\ExportToCsv.cs" />
+    <Compile Include="Export\ExportToExcel.cs" />
+    <Compile Include="Export\ExportToXml.cs" />
+    <Compile Include="Export\NamespaceDoc.cs" />
+    <Compile Include="FluentInterface\PdfReport.cs" />
+    <Compile Include="FluentInterface\DefaultFontsBuilder.cs" />
+    <Compile Include="FluentInterface\EncryptedFileBuilder.cs" />
+    <Compile Include="FluentInterface\ExportToBuilder.cs" />
+    <Compile Include="FluentInterface\FileBuilder.cs" />
+    <Compile Include="FluentInterface\MainTablePreferencesBuilder.cs" />
+    <Compile Include="FluentInterface\DocumentPreferencesBuilder.cs" />
+    <Compile Include="FluentInterface\SignedFileBuilder.cs" />
+    <Compile Include="GenericFontProvider.cs" />
+    <Compile Include="FooterTemplates\DefaultFooterProvider.cs" />
+    <Compile Include="Core\PdfTable\GroupsManager.cs" />
+    <Compile Include="Core\PdfTable\InitTable.cs" />
+    <Compile Include="Core\PdfTable\RowsManager.cs" />
+    <Compile Include="Core\PdfTable\TablesInColumns.cs" />
+    <Compile Include="Core\Helper\HumanReadableInteger.cs" />
+    <Compile Include="Core\Helper\PersianDate.cs" />
+    <Compile Include="Core\Helper\CellDataExt.cs" />
+    <Compile Include="Core\Helper\PropertyHelper.cs" />
+    <Compile Include="Core\Helper\CompileAsIPdfRptData.cs" />
+    <Compile Include="Core\Helper\FuncHelper.cs" />
+    <Compile Include="Core\Helper\PdfImageHelper.cs" />
+    <Compile Include="DataSources\SqlParametersParser.cs" />
+    <Compile Include="Core\PdfTable\MainTableCellsEvent.cs" />
+    <Compile Include="HeaderTemplates\InlineHeaderProvider.cs" />
+    <Compile Include="HeaderTemplates\NamespaceDoc.cs" />
+    <Compile Include="HeaderTemplates\XHtmlHeaderProvider.cs" />
+    <Compile Include="NamespaceDoc.cs" />
+    <Compile Include="PdfReportDocument.cs" />
+    <Compile Include="Core\Helper\TableHelper.cs" />
+    <Compile Include="Core\PdfTable\PageEvents.cs" />
+    <Compile Include="Core\PdfTable\RenderMainTable.cs" />
+    <Compile Include="Core\PdfTable\TableCellHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\Contracts\SummaryCellData.cs" />
+    <Compile Include="BasicTemplateProvider.cs" />
+    <Compile Include="VectorCharts\IVectorChart.cs" />
+    <Compile Include="VectorCharts\BarChartItem.cs" />
+    <Compile Include="VectorCharts\HorizontalBarChart.cs" />
+    <Compile Include="VectorCharts\PieChart.cs" />
+    <Compile Include="VectorCharts\PieChartSegment.cs" />
+    <Compile Include="VectorCharts\VerticalBarChart.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Core\Helper\srgb.profile" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Key.snk" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Target Name="AfterBuild">
+    <Message Text="Enter After Build TargetFrameworkVersion:$(TargetFrameworkVersion) Framework:$(Framework)" Importance="high" />
+    <MSBuild Condition=" '$(Framework)' == ''" Projects="$(MSBuildProjectFile)" Properties="Framework=NET35" RunEachTargetSeparately="true" />
+    <MSBuild Condition=" '$(Framework)' == 'NET35'" Projects="$(MSBuildProjectFile)" Properties="Framework=NET40" RunEachTargetSeparately="true" />
+    <MSBuild Condition=" '$(Framework)' == 'NET40'" Projects="$(MSBuildProjectFile)" Properties="Framework=NET45" RunEachTargetSeparately="true" />
+    <Message Text="Exiting After Build TargetFrameworkVersion:$(TargetFrameworkVersion) Framework:$(Framework)" Importance="high" />
+  </Target>
+</Project>

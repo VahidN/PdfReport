@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{905D0B29-2E48-4254-860E-CA7DD67F276E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PdfReportSamples</RootNamespace>
+    <AssemblyName>PdfReportSamples</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>3eacdedf</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=4.0.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPPlus.4.0.4\lib\net20\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.7.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\iTextSharp.5.5.7\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp.pdfa, Version=5.5.7.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\itextsharp.pdfa.5.5.7\lib\itextsharp.pdfa.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.7.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\itextsharp.xmlworker.5.5.7\lib\itextsharp.xmlworker.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.97.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.Core.1.0.97.0\lib\net20\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq">
+      <HintPath>..\..\packages\System.Data.SQLite.Linq.1.0.97.0\lib\net20\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization">
+      <HintPath>..\..\Bin\System.Windows.Forms.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountingBalanceColumn\AccountingBalanceColumnPdfReport.cs" />
+    <Compile Include="AcroFormTemplate\AcroFormTemplatePdfReport.cs" />
+    <Compile Include="AdHocColumns\AdHocColumnsPdfReport.cs" />
+    <Compile Include="AnnotationField\AnnotationFieldPdfReport.cs" />
+    <Compile Include="AppPath.cs" />
+    <Compile Include="Average\AveragePdfReport.cs" />
+    <Compile Include="Average\RptItem.cs" />
+    <Compile Include="Barcodes\BarcodesPdfReport.cs" />
+    <Compile Include="Barcodes\QRCodeTemplate.cs" />
+    <Compile Include="CalculatedFields\CalculatedFieldsPdfReport.cs" />
+    <Compile Include="CharacterMap\CellTemplate.cs" />
+    <Compile Include="CharacterMap\CharacterMapPdfReport.cs" />
+    <Compile Include="ChartImage\ChartImagePdfReport.cs" />
+    <Compile Include="ChartImage\MSChartHelper.cs" />
+    <Compile Include="CsvToPdf\CsvToPdfReport.cs" />
+    <Compile Include="CustomCellTemplate\CustomCellTemplatePdfReport.cs" />
+    <Compile Include="CustomCellTemplate\MyCustomCellTemplate.cs" />
+    <Compile Include="CustomHeaderFooter\CustomFooter.cs" />
+    <Compile Include="CustomHeaderFooter\CustomHeader.cs" />
+    <Compile Include="CustomHeaderFooter\CustomHeaderFooterPdfReport.cs" />
+    <Compile Include="CustomPriceNumber\CustomPriceCell.cs" />
+    <Compile Include="CustomPriceNumber\CustomPriceNumberPdfReport.cs" />
+    <Compile Include="CustomSummaryPerPage\CustomSummaryPerPagePdfReport.cs" />
+    <Compile Include="DataAnnotations\DataAnnotationsPdfReport.cs" />
+    <Compile Include="DataAnnotations\Person.cs" />
+    <Compile Include="DataAnnotations\PersonnelDataSource.cs" />
+    <Compile Include="DbImage\DbImagePdfReport.cs" />
+    <Compile Include="DigitalSignature\DigitalSignaturePdfReport.cs" />
+    <Compile Include="DuplicateColumns\DuplicateColumnsPdfReport.cs" />
+    <Compile Include="DynamicCompile\DynamicCompilePdfReport.cs" />
+    <Compile Include="DynamicCrosstab\DynamicCrosstabPdfReport.cs" />
+    <Compile Include="EmailInMemoryPdf\EmailInMemoryPdfReport.cs" />
+    <Compile Include="Events\EventsPdfReport.cs" />
+    <Compile Include="ExcelToPdf\ExcelToPdfReport.cs" />
+    <Compile Include="ExpensesCrosstab\ExpenseDataSource.cs" />
+    <Compile Include="ExpensesCrosstab\ExpensesCrosstabPdfReport.cs" />
+    <Compile Include="ExtraHeadingCells\DataGenerator.cs" />
+    <Compile Include="ExtraHeadingCells\ExtraHeadingCellsPdfReport.cs" />
+    <Compile Include="GroupingDocs\GroupingDocsPdfReport.cs" />
+    <Compile Include="GroupingDocs\VoucherRowPrintViewModel.cs" />
+    <Compile Include="Grouping\GroupingHeaders.cs" />
+    <Compile Include="Grouping\GroupingPdfReport.cs" />
+    <Compile Include="HexDump\GrayTemplate.cs" />
+    <Compile Include="HexDump\HexDumpPdfReport.cs" />
+    <Compile Include="HexDump\PrintHex.cs" />
+    <Compile Include="HtmlCellTemplate\HtmlCellTemplatePdfReport.cs" />
+    <Compile Include="HtmlHeaderRtl\HtmlHeaderRtlPdfReport.cs" />
+    <Compile Include="HtmlHeader\HtmlHeaderPdfReport.cs" />
+    <Compile Include="IList\IListPdfReport.cs" />
+    <Compile Include="ImageFilePath\ImageFilePathPdfReport.cs" />
+    <Compile Include="InjectCustomRows\InjectCustomRowsDataSource.cs" />
+    <Compile Include="InjectCustomRows\InjectCustomRowsPdfReport.cs" />
+    <Compile Include="InlineProviders\InlineProvidersPdfReport.cs" />
+    <Compile Include="InMemory\InMemoryPdfReport.cs" />
+    <Compile Include="LongTextInCell\ApprovalReport.cs" />
+    <Compile Include="LongTextInCell\LongTextInCellPdfReport.cs" />
+    <Compile Include="MailingLabel\MailingLabelCellTemplate.cs" />
+    <Compile Include="MailingLabel\MailingLabelPdfReport.cs" />
+    <Compile Include="MasterDetails\MasterDetailsHeaders.cs" />
+    <Compile Include="MasterDetails\MasterDetailsPdfReport.cs" />
+    <Compile Include="MergePdfFilesInMemory\MergeInMemoryPdfFilesPdfReport.cs" />
+    <Compile Include="MergePdfFilesInMemory\PdfReportToArray.cs" />
+    <Compile Include="MergePdfFiles\MergePdfFilesPdfReport.cs" />
+    <Compile Include="Models\AcroFormModel.cs" />
+    <Compile Include="Models\CharacterInfo.cs" />
+    <Compile Include="Models\ClassSession.cs" />
+    <Compile Include="Models\CustomerType.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Expense.cs" />
+    <Compile Include="Models\FlatContact.cs" />
+    <Compile Include="Models\FontSample.cs" />
+    <Compile Include="Models\ImageRecord.cs" />
+    <Compile Include="Models\JobTitle.cs" />
+    <Compile Include="Models\MailInfo.cs" />
+    <Compile Include="Models\Shipping.cs" />
+    <Compile Include="Models\UserMonthCalendar.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Orders.cs" />
+    <Compile Include="Models\OrderType.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Phone.cs" />
+    <Compile Include="Models\PhoneType.cs" />
+    <Compile Include="Models\PunchOutTimeRecord.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\StudentGrade.cs" />
+    <Compile Include="Models\StudentStat.cs" />
+    <Compile Include="Models\Task.cs" />
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\TransactionType.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserWorkedHours.cs" />
+    <Compile Include="MonthCalendar\MonthCalendarDataSource.cs" />
+    <Compile Include="MonthCalendar\MonthCalendarPdfReport.cs" />
+    <Compile Include="NestedProperties\NestedPropertiesPdfReport.cs" />
+    <Compile Include="NestedProperties\SessionsDataSource.cs" />
+    <Compile Include="PdfA\PdfAPdfReport.cs" />
+    <Compile Include="PdfA\TransactionsDataSource.cs" />
+    <Compile Include="PersianFontsListToPdf\FontsListCellTemplate.cs" />
+    <Compile Include="PersianFontsListToPdf\PersianFontsListToPdfReport.cs" />
+    <Compile Include="PersianMonthCalendar\PersianMonthCalendarDataSource.cs" />
+    <Compile Include="PersianMonthCalendar\PersianMonthCalendarPdfReport.cs" />
+    <Compile Include="PersianRtl\PersianRtlPdfReport.cs" />
+    <Compile Include="SingleEntity\Document.cs" />
+    <Compile Include="SingleEntity\Rpt.cs" />
+    <Compile Include="SingleEntity\SingleEntityPdfReport.cs" />
+    <Compile Include="VectorBarChart\VectorBarChartPdfReport.cs" />
+    <Compile Include="VectorPieChart\VectorPieChartPdfReport.cs" />
+    <Compile Include="ProgressReport\ProgressReportPdfReport.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionsAcroForm\QuestionsAcroFormPdfReport.cs" />
+    <Compile Include="QuestionsForm\EntryTemplate.cs" />
+    <Compile Include="QuestionsForm\QuestionsFormPdfReport.cs" />
+    <Compile Include="SQLiteDataReader\SQLiteDataReaderPdfReport.cs" />
+    <Compile Include="StackedProperties\StackedPropertiesPdfReport.cs" />
+    <Compile Include="Tax\TaxPdfReport.cs" />
+    <Compile Include="Templates\GradientTestTemplate.cs" />
+    <Compile Include="Templates\TransparentTemplate.cs" />
+    <Compile Include="WingdingsSymbols\WingdingsSymbolsPdfReport.cs" />
+    <Compile Include="WorkedHours\PunchOutTimePivot.cs" />
+    <Compile Include="WorkedHours\PunchOutTimeSampleDataSource.cs" />
+    <Compile Include="WorkedHours\WorkedHoursPdfReport.cs" />
+    <Compile Include="WorkedHours\WorkedHoursSum.cs" />
+    <Compile Include="WrapGroupsInColumns\WGHeaders.cs" />
+    <Compile Include="WrapGroupsInColumns\WrapGroupsInColumnsPdfReport.cs" />
+    <Compile Include="XmlToPdf\XmlToPdfReport.cs" />
+    <Compile Include="ZapfDingbatsSymbols\ZapfDingbatsSymbols.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Lib\PdfRpt.csproj">
+      <Project>{7151EF82-995E-429B-BBA8-A3EE7FBD3536}</Project>
+      <Name>PdfRpt</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\..\packages\System.Data.SQLite.Core.1.0.97.0\build\net20\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\System.Data.SQLite.Core.1.0.97.0\build\net20\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\System.Data.SQLite.Core.1.0.97.0\build\net20\System.Data.SQLite.Core.targets" Condition="Exists('..\..\packages\System.Data.SQLite.Core.1.0.97.0\build\net20\System.Data.SQLite.Core.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

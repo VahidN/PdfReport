@@ -1,0 +1,2 @@
+This sample needs the Acrobat SDK (http://www.adobe.com/devnet/acrobat/downloads.html), 
+which is combined with the `full` version of the Adobe Acrobat.

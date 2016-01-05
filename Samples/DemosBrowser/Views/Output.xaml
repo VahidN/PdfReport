@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="DemosBrowser.Views.Output"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Behaviors="clr-namespace:DemosBrowser.Behaviors"                  
+             mc:Ignorable="d" 
+             Name="ThisUserControl"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <WindowsFormsHost 
+                  Grid.Row="1"
+                  Visibility="{Binding BrowserGuiData.ControlVisibility, Mode=TwoWay}"
+                  Behaviors:WindowsFormsHostBehavior.BindableChild="{Binding BrowserGuiData.AcroPdf, Mode=TwoWay}" />
+
+        <StatusBar Grid.Row="2" Foreground="White" Background="#FF393939">
+            <TextBlock Text="Elapsed Time:" />
+            <TextBlock Text="{Binding BrowserGuiData.ElapsedTime, Mode=TwoWay}" />
+
+            <Separator/>
+            <TextBlock Text="Memory Usage:" />
+            <TextBlock Text="{Binding BrowserGuiData.MemoryUsage, Mode=TwoWay}" />
+
+            <Separator/>
+            <TextBlock Text="File Size:" />
+            <TextBlock Text="{Binding BrowserGuiData.FileSize, Mode=TwoWay}" />
+        </StatusBar>
+    </Grid>
+</UserControl>

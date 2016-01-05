@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlPdf", "SlPdf\SlPdf.csproj", "{B8A291F7-46A0-4248-91AC-72A8EED2CEFC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2AA67F6D-E3E1-480F-AEA5-349E2D449093} = {2AA67F6D-E3E1-480F-AEA5-349E2D449093}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlPdf.Web", "SlPdf.Web\SlPdf.Web.csproj", "{2AA67F6D-E3E1-480F-AEA5-349E2D449093}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8A291F7-46A0-4248-91AC-72A8EED2CEFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8A291F7-46A0-4248-91AC-72A8EED2CEFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8A291F7-46A0-4248-91AC-72A8EED2CEFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8A291F7-46A0-4248-91AC-72A8EED2CEFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AA67F6D-E3E1-480F-AEA5-349E2D449093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AA67F6D-E3E1-480F-AEA5-349E2D449093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AA67F6D-E3E1-480F-AEA5-349E2D449093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AA67F6D-E3E1-480F-AEA5-349E2D449093}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

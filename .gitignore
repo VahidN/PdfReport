@@ -4,7 +4,11 @@
 # User-specific files
 *.suo
 *.user
+*.nupkg
 *.sln.docstates
+*.exe
+*.dll
+.nuget/*.nupkg
 
 # Build results
 [Dd]ebug/

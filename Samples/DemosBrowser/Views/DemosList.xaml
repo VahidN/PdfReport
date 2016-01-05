@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="DemosBrowser.Views.DemosList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:Converters="clr-namespace:DemosBrowser.Converters"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Converters:WaterMarkConverter x:Key="convWaterMarkConverter" />
+        <Converters:SamplesNameConverter x:Key="convSamplesNameConverter"/>
+        <Converters:RunDirectionConverter x:Key="convRunDirectionConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="2">
+            <StackPanel.Visibility>
+                <MultiBinding Converter="{StaticResource convWaterMarkConverter}">
+                    <Binding ElementName="txtSearch" Path="Text.IsEmpty" />
+                    <Binding ElementName="txtSearch" Path="IsFocused" />
+                </MultiBinding>
+            </StackPanel.Visibility>
+            <Image Source="/Images/toolbar_find.png"                    
+				   Margin="3,2,2,2" Width="16" Height="16" Stretch="UniformToFill" VerticalAlignment="Center" />
+            <TextBlock Margin="2" Text="Search"                        
+				       Foreground="DarkGray" VerticalAlignment="Center" />
+        </StackPanel>
+        <TextBox Grid.Row="0" Text="{Binding BrowserGuiData.SearchText, 
+								             Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"   
+                              FlowDirection="{Binding Path=BrowserGuiData.SearchText, Mode=TwoWay, Converter={StaticResource convRunDirectionConverter}}"
+							  Margin="2" Name="txtSearch" Background="Transparent"/>
+
+        <ListView Grid.Row="1" Margin="2"                                      
+							   SelectedItem="{Binding BrowserGuiData.SelectedSample, Mode=TwoWay}"
+							   ItemsSource="{Binding SamplesDataView}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Samples">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Left"
+										   Width="Auto" 
+                                           Text="{Binding FullName, Converter={StaticResource convSamplesNameConverter}}"
+                                           VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>

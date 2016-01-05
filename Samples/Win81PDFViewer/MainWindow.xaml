@@ -1,0 +1,30 @@
+﻿<Window x:Class="Win81PDFViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Using Windows.Data.Pdf in desktop applications"
+        WindowState="Maximized"
+        Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ToolBar Grid.Row="0">
+            <Button Name="OpenButton" VerticalAlignment="Bottom" Click="OpenButton_Click">Open</Button>
+            <Separator />
+            <Button Name="BackButton" VerticalAlignment="Bottom" IsEnabled="False" Click="BackButton_OnClick">
+                <TextBlock FontFamily="Segoe UI Symbol" Text="&#58020;"/>
+            </Button>
+            <TextBlock Name="TxtPage" Margin="2"/>
+            <Button Name="ForwardButton" VerticalAlignment="Bottom" IsEnabled="False" Click="ForwardButton_OnClick">
+                <TextBlock FontFamily="Segoe UI Symbol" Text="&#58025;"/>
+            </Button>
+        </ToolBar>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Auto"
+                      Grid.Row="1">
+            <Image Name="PdfPageImage"  Stretch="None"/>
+        </ScrollViewer>
+    </Grid>
+</Window>
