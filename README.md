@@ -20,6 +20,12 @@ You can also view the [package page](http://www.nuget.org/packages/PdfReport/) o
 
 
 
-Usage:
+Usage
 -----------------
 [Introducing PdfReport](http://www.codeproject.com/Articles/492055/Introducing-PdfRport)
+
+
+
+History
+-----------------
+The project used to be hosted in [CodePlex](https://pdfreport.codeplex.com) and has since been migrated here.
