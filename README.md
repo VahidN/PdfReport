@@ -22,8 +22,8 @@ You can also view the [package page](http://www.nuget.org/packages/PdfReport/) o
 
 Usage
 -----------------
-[Introducing PdfReport](http://www.codeproject.com/Articles/492055/Introducing-PdfRport)
-
+ -  [Introducing PdfReport](http://www.codeproject.com/Articles/492055/Introducing-PdfRport)
+ -  [ PDFReport Samples List](https://github.com/VahidN/PdfReport/wiki/PDFReport-Samples-List)
 
 
 History
