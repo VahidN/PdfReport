@@ -97,6 +97,20 @@ namespace PdfRpt.FluentInterface
         }
 
         /// <summary>
+        /// Generates the final PDF file.
+        /// </summary>
+        public byte[] GenerateAsByteArray(bool debugMode = false)
+        {
+            var rpt = PdfRptDataBuilder;
+            return new PdfReportDocument
+            {
+                PdfRptData = rpt,
+                OutputAsByteArray = true,
+                FlushInBrowser = false
+            }.GeneratePdf(debugMode);
+        }
+
+        /// <summary>
         /// Sets the encryption preferences for this document.
         /// </summary>
         /// <param name="pdfRptEncryptedFileBuilder">encryption preferences builder</param>

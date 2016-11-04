@@ -63,5 +63,14 @@ namespace PdfRpt.FluentInterface
             FlushReportDataInBrowser = true;
             FlushType = flushType;
         }
+
+        /// <summary>
+        /// Sets the output PDF file's byte array.
+        /// </summary>
+        /// <param name="outputPdfBytes">output data</param>
+        public void AsByteArray(out byte[] outputPdfBytes)
+        {
+            outputPdfBytes = _pdfReport.GenerateAsByteArray();
+        }
     }
 }

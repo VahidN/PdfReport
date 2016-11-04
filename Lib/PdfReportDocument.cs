@@ -34,7 +34,12 @@ namespace PdfRpt
 
         #endregion Constructors
 
-        #region Properties (6)
+        #region Properties
+
+        /// <summary>
+        /// It sets PdfStreamOutput to a new MemoryStream() and then returns the content as a byte array.
+        /// </summary>
+        public bool OutputAsByteArray { set; get; }
 
         /// <summary>
         /// It's designed for the ASP.NET Applications.
@@ -84,34 +89,40 @@ namespace PdfRpt
         /// <summary>
         /// Start generating the report based on the PdfRptData 
         /// </summary>
-        public void GeneratePdf(bool debugMode = false)
+        public byte[] GeneratePdf(bool debugMode = false)
         {
             checkNullValues();
 
             if (debugMode)
             {
-                runInDebugMode();
+                return runInDebugMode();
             }
-            else
+            return runInReleaseMode();
+        }
+
+        private byte[] runInDebugMode()
+        {
+            byte[] data;
+            try
             {
-                runInReleaseMode();
+                PdfDoc = new Document(DocumentSettings.GetPageSizeAndColor(_pdfRptData.DocumentPreferences),
+                            _pdfRptData.DocumentPreferences.PagePreferences.Margins.Left,
+                            _pdfRptData.DocumentPreferences.PagePreferences.Margins.Right,
+                            _pdfRptData.DocumentPreferences.PagePreferences.Margins.Top,
+                            _pdfRptData.DocumentPreferences.PagePreferences.Margins.Bottom);
+
+                data = createPdf();
             }
+            finally
+            {
+                PdfDoc.Dispose();
+            }
+            return data;
         }
 
-        private void runInDebugMode()
+        private byte[] runInReleaseMode()
         {
-            PdfDoc = new Document(DocumentSettings.GetPageSizeAndColor(_pdfRptData.DocumentPreferences),
-                        _pdfRptData.DocumentPreferences.PagePreferences.Margins.Left,
-                        _pdfRptData.DocumentPreferences.PagePreferences.Margins.Right,
-                        _pdfRptData.DocumentPreferences.PagePreferences.Margins.Top,
-                        _pdfRptData.DocumentPreferences.PagePreferences.Margins.Bottom);
-
-            createPdf();
-            PdfDoc.Dispose();
-        }
-
-        private void runInReleaseMode()
-        {
+            byte[] data = null;
             new Document(DocumentSettings.GetPageSizeAndColor(_pdfRptData.DocumentPreferences),
                         _pdfRptData.DocumentPreferences.PagePreferences.Margins.Left,
                         _pdfRptData.DocumentPreferences.PagePreferences.Margins.Right,
@@ -120,13 +131,14 @@ namespace PdfRpt
                         .SafeUsingBlock(pdfDisposable =>
                         {
                             PdfDoc = pdfDisposable;
-                            createPdf();
+                            data = createPdf();
                         });
+            return data;
         }
 
-        private void createPdf()
+        private byte[] createPdf()
         {
-            if (FlushInBrowser)
+            if (FlushInBrowser || OutputAsByteArray)
                 _pdfRptData.PdfStreamOutput = new MemoryStream();
 
             var stream = _pdfRptData.PdfStreamOutput;
@@ -148,13 +160,15 @@ namespace PdfRpt
             if (_pdfRptData.MainTableEvents != null)
                 _pdfRptData.MainTableEvents.DocumentClosing(new EventsArguments { PdfDoc = PdfDoc, PdfWriter = PdfWriter, PdfStreamOutput = stream, ColumnCellsSummaryData = ColumnSummaryCellsData, PageSetup = _pdfRptData.DocumentPreferences, PdfFont = _pdfRptData.PdfFont, PdfColumnsAttributes = _pdfRptData.PdfColumnsAttributes });
 
-            flushFileInBrowser();
+            return flushFileInBrowser();
         }
 
-        private void flushFileInBrowser()
+        private byte[] flushFileInBrowser()
         {
-            if (!FlushInBrowser)
-                return;
+            if (!FlushInBrowser && !OutputAsByteArray)
+            {
+                return null;
+            }
 
             // close the document without closing the underlying stream
             PdfWriter.CloseStream = false;
@@ -163,7 +177,13 @@ namespace PdfRpt
 
             // write pdf bytes to output stream
             var pdf = ((MemoryStream)_pdfRptData.PdfStreamOutput).ToArray();
-            SoftHttpContext.FlushInBrowser(_pdfRptData.FileName, pdf, FlushType);
+
+            if (FlushInBrowser)
+            {
+                SoftHttpContext.FlushInBrowser(_pdfRptData.FileName, pdf, FlushType);
+            }
+
+            return pdf;
         }
 
         private void initSettings()
