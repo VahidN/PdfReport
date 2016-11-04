@@ -13,6 +13,6 @@ using System.Security;
 [assembly: ComVisible(false)]
 [assembly: Guid("0bcfe2e0-76c0-4957-a930-c7aade4d5d12")]
 
-[assembly: AssemblyVersion("2.8.3.0")]
-[assembly: AssemblyFileVersion("2.8.3.0")]
+[assembly: AssemblyVersion("2.9.0.0")]
+[assembly: AssemblyFileVersion("2.9.0.0")]
 [assembly: AllowPartiallyTrustedCallers]
