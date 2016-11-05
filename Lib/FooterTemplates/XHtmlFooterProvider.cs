@@ -51,7 +51,7 @@ namespace PdfRpt.FooterTemplates
                 PdfDoc = document,
                 PdfWriter = writer,
                 SummaryData = columnCellsSummaryData,
-                CurrentPageNumber = writer.PageNumber,
+                CurrentPageNumber = writer.CurrentPageNumber,
                 TotalPagesCountImage = _totalPageCountImage
             });
             var table = createTable(pageFooterHtml);
@@ -115,7 +115,7 @@ namespace PdfRpt.FooterTemplates
                 throw new NullReferenceException("PdfFont is null.");
 
             var font = FooterProperties.PdfFont.Fonts[0];
-            var text = "" + (writer.PageNumber - 1);
+            var text = "" + (writer.CurrentPageNumber - 1);
             var textLen = font.BaseFont.GetWidthPoint(text, font.Size);
             var x = FooterProperties.RunDirection == PdfRunDirection.LeftToRight ?
                      0 : FooterProperties.TotalPagesCountTemplateWidth - textLen;

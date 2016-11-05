@@ -25,14 +25,14 @@ namespace PdfReportSamples.CustomHeaderFooter
             _template.BeginText();
             _template.SetFontAndSize(_pdfRptFont.Fonts[0].BaseFont, 8);
             _template.SetTextMatrix(0, 0);
-            _template.ShowText((writer.PageNumber - 1).ToString());
+            _template.ShowText((writer.CurrentPageNumber - 1).ToString());
             _template.EndText();
         }
 
         public void PageFinished(PdfWriter writer, Document document, IList<SummaryCellData> columnCellsSummaryData)
         {
             var pageSize = document.PageSize;
-            var text = "Page " + writer.PageNumber + " / ";
+            var text = "Page " + writer.CurrentPageNumber + " / ";
             var textLen = _font.BaseFont.GetWidthPoint(text, _font.Size);
             var center = (pageSize.Left + pageSize.Right) / 2;
             var align = _direction == PdfRunDirection.RightToLeft ? Element.ALIGN_RIGHT : Element.ALIGN_LEFT;

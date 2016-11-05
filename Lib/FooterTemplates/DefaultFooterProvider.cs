@@ -92,7 +92,7 @@ namespace PdfRpt.FooterTemplates
 
         private Rectangle addTotalPageNumebersTemplate(PdfWriter writer, Document document)
         {
-            var pageN = writer.PageNumber;
+            var pageN = writer.CurrentPageNumber;
             var text = pageN + " / ";
             var len = _pdfRptFont.Fonts[0].BaseFont.GetWidthPoint(text, 8);
 
@@ -121,7 +121,7 @@ namespace PdfRpt.FooterTemplates
             _totalPageCountTemplate.BeginText();
             _totalPageCountTemplate.SetFontAndSize(_pdfRptFont.Fonts[0].BaseFont, 8);
             _totalPageCountTemplate.SetTextMatrix(0, 0);
-            _totalPageCountTemplate.ShowText("" + (writer.PageNumber - 1));
+            _totalPageCountTemplate.ShowText("" + (writer.CurrentPageNumber - 1));
             _totalPageCountTemplate.EndText();
         }
 
