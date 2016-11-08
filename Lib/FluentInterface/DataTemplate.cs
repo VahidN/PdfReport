@@ -48,7 +48,7 @@ namespace PdfRpt.FluentInterface
         AdHocColumnsConventions _adHocColumnsConventions;
         TableColumnWidthType? _columnsWidthsType;
         MultipleColumnsPerPage _multipleColumnsPerPage;
-        bool _splitLate;
+        bool _splitLate = true;
         bool _splitRows = true;
         bool _cacheHeader = true;
         bool _keepTogether;

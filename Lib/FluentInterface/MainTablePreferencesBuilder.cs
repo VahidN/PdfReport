@@ -51,7 +51,7 @@ namespace PdfRpt.FluentInterface
         /// Split the cells of the first row that doesn't fit the page.
         /// If true, a that row doesn't fit on the page, its complete row will be forwarded to the next page.
         /// If false, rows that are too high to fit on a page will be dropped from the table.
-        /// Its default value is fale.
+        /// Its default value is true.
         /// </summary>
         public void SplitLate(bool split)
         {
