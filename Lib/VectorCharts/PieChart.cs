@@ -247,9 +247,16 @@ namespace PdfRpt.VectorCharts
         private float getMaxTextHeight()
         {
             var segment = Segments.OrderByDescending(x => x.Label.Length).First();
-            var ascend = PdfFont.Fonts.First().BaseFont.GetAscentPoint(segment.Label, PdfFont.Size);
-            var descend = PdfFont.Fonts.First().BaseFont.GetDescentPoint(segment.Label, PdfFont.Size);
-            return ascend - descend;
+            var firstFont = PdfFont.Fonts[0];
+            var baseFont = firstFont.BaseFont;
+            var ascend = baseFont.GetAscentPoint(segment.Label, PdfFont.Size);
+            var descend = baseFont.GetDescentPoint(segment.Label, PdfFont.Size);
+            var maxTextHeight = ascend - descend;
+            if (maxTextHeight.ApproxEquals(0))
+            {
+                throw new InvalidOperationException("maxTextHeight with " + firstFont.Familyname + " is zero.");
+            }
+            return maxTextHeight;
         }
 
         private float getMaxTextWidth()

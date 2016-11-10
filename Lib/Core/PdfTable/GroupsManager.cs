@@ -219,7 +219,7 @@ namespace PdfRpt.Core.PdfTable
             }
 
             if (SharedData.MainTableEvents != null && _groupNumber > 0)
-                SharedData.MainTableEvents.GroupAdded(new EventsArguments { PdfDoc = SharedData.PdfDoc, PdfWriter = SharedData.PdfWriter, ColumnCellsSummaryData = SharedData.ColumnCellsSummaryData, PreviousTableRowData = CurrentRowInfoData.PreviousTableRowData, PageSetup = SharedData.PageSetup, PdfFont = SharedData.PdfFont, PdfColumnsAttributes = SharedData.PdfColumnsAttributes });
+                SharedData.MainTableEvents.GroupAdded(new EventsArguments { PdfDoc = SharedData.PdfDoc, PdfWriter = SharedData.PdfWriter, Table = MainGroupTable, ColumnCellsSummaryData = SharedData.ColumnCellsSummaryData, PreviousTableRowData = CurrentRowInfoData.PreviousTableRowData, PageSetup = SharedData.PageSetup, PdfFont = SharedData.PdfFont, PdfColumnsAttributes = SharedData.PdfColumnsAttributes });
 
             _groupNumber++;
             if (shouldCheckOneGroupPerPage) showOneGroupPerPage();

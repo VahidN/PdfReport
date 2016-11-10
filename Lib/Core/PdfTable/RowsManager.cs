@@ -378,7 +378,7 @@ namespace PdfRpt.Core.PdfTable
             MainTable.FooterRows = 0;
             if (SharedData.IsGroupingEnabled)
             {
-                SharedData.MainTableEvents.GroupAdded(new EventsArguments { PdfDoc = SharedData.PdfDoc, PdfWriter = SharedData.PdfWriter, ColumnCellsSummaryData = SharedData.ColumnCellsSummaryData, PreviousTableRowData = CurrentRowInfoData.PreviousTableRowData, PageSetup = SharedData.PageSetup, PdfFont = SharedData.PdfFont, PdfColumnsAttributes = SharedData.PdfColumnsAttributes });
+                SharedData.MainTableEvents.GroupAdded(new EventsArguments { PdfDoc = SharedData.PdfDoc, PdfWriter = SharedData.PdfWriter, Table = MainTable, ColumnCellsSummaryData = SharedData.ColumnCellsSummaryData, PreviousTableRowData = CurrentRowInfoData.PreviousTableRowData, PageSetup = SharedData.PageSetup, PdfFont = SharedData.PdfFont, PdfColumnsAttributes = SharedData.PdfColumnsAttributes });
             }
             SharedData.MainTableEvents.MainTableAdded(new EventsArguments { PdfDoc = SharedData.PdfDoc, PdfWriter = SharedData.PdfWriter, Table = MainTable, ColumnCellsSummaryData = SharedData.ColumnCellsSummaryData, PreviousTableRowData = _previousTableRowData, PageSetup = SharedData.PageSetup, PdfFont = SharedData.PdfFont, PdfColumnsAttributes = SharedData.PdfColumnsAttributes });
         }
