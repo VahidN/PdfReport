@@ -22,22 +22,35 @@ namespace PdfReportSamples.MergePdfFiles
 
             var finalMergedFile = Path.Combine(AppPath.ApplicationPath, "Pdf\\mergedFile.pdf");
 
-            new MergePdfDocuments
+            var mergePdfDocuments = new MergePdfDocuments
             {
                 DocumentMetadata = new DocumentMetadata { Author = "Vahid", Application = "PdfRpt", Keywords = "Test", Subject = "MergePdfFiles Rpt.", Title = "Test" },
                 InputFileStreams = new Stream[]
-                     {
-                       new FileStream(rpt1.FileName, FileMode.Open, FileAccess.Read, FileShare.Read),
-                       new FileStream(rpt2.FileName, FileMode.Open, FileAccess.Read, FileShare.Read)
-                     },
+                {
+                    new FileStream(rpt1.FileName, FileMode.Open, FileAccess.Read, FileShare.Read),
+                    new FileStream(rpt2.FileName, FileMode.Open, FileAccess.Read, FileShare.Read)
+                },
                 OutputFileStream = new FileStream(finalMergedFile, FileMode.Create),
                 AttachmentsBookmarkLabel = "Attachment(s) ",
                 WriterCustomizer = importedPageInfo =>
                 {
                     addNewPageNumbersToFinalMergedFile(importedPageInfo);
                 }
+            };
+            mergePdfDocuments.PerformMerge();
+
+            foreach (var stream in mergePdfDocuments.InputFileStreams)
+            {
+                if (stream != null)
+                {
+                    stream.Dispose();
+                }
             }
-            .PerformMerge();
+
+            if (mergePdfDocuments.OutputFileStream != null)
+            {
+                mergePdfDocuments.OutputFileStream.Dispose();
+            }
 
             return finalMergedFile;
         }
