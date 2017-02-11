@@ -51,6 +51,12 @@ namespace PdfReportSamples.StackedProperties
              {
                  table.ColumnsWidthsType(TableColumnWidthType.Relative);
              })
+             .MainTableSummarySettings(summarySettings =>
+             {
+                 summarySettings.OverallSummarySettings("Summary");
+                 summarySettings.PreviousPageSummarySettings("Previous Page Summary");
+                 summarySettings.PageSummarySettings("Page Summary");
+             })
              .MainTableDataSource(dataSource =>
              {
                  var listOfRows = new List<Shipping>();
@@ -82,7 +88,7 @@ namespace PdfReportSamples.StackedProperties
                      column.Order(0);
                      column.Width(1);
                      column.HeaderCell("#");//------- Main Header Row
-                     column.AddHeadingCell(string.Empty, mergeHeaderCell: false);//------- Extra Header Row - 1                     
+                     column.AddHeadingCell(string.Empty, mergeHeaderCell: false);//------- Extra Header Row - 1
                  });
 
                  columns.AddColumn(column =>
@@ -93,7 +99,7 @@ namespace PdfReportSamples.StackedProperties
                      column.Order(1);
                      column.Width(2);
                      column.HeaderCell("Number");//------- Main Header Row
-                     column.AddHeadingCell("Type", mergeHeaderCell: false);//------- Extra Header Row - 1                     
+                     column.AddHeadingCell("Type", mergeHeaderCell: false);//------- Extra Header Row - 1
                      column.ColumnItemsTemplate(itemsTemplate =>
                          {
                              itemsTemplate.XHtml();
@@ -123,7 +129,7 @@ namespace PdfReportSamples.StackedProperties
                      column.Order(2);
                      column.Width(2);
                      column.HeaderCell("Name");//------- Main Header Row
-                     column.AddHeadingCell("Order Number", mergeHeaderCell: false);//------- Extra Header Row - 1                     
+                     column.AddHeadingCell("Order Number", mergeHeaderCell: false);//------- Extra Header Row - 1
                      column.ColumnItemsTemplate(itemsTemplate =>
                      {
                          itemsTemplate.XHtml();
@@ -153,7 +159,7 @@ namespace PdfReportSamples.StackedProperties
                      column.Order(3);
                      column.Width(2);
                      column.HeaderCell("Weight");//------- Main Header Row
-                     column.AddHeadingCell("Quantity", mergeHeaderCell: false);//------- Extra Header Row - 1                     
+                     column.AddHeadingCell("Quantity", mergeHeaderCell: false);//------- Extra Header Row - 1
                      column.ColumnItemsTemplate(itemsTemplate =>
                      {
                          itemsTemplate.XHtml();
@@ -173,6 +179,13 @@ namespace PdfReportSamples.StackedProperties
                                        </table>
                                      ";
                      });
+                     column.AggregateFunction(aggregateFunction =>
+                     {
+                         aggregateFunction.CustomAggregateFunction(new CustomSum());
+                         aggregateFunction.DisplayFormatFormula(obj => obj == null || string.IsNullOrEmpty(obj.ToString())
+                                    ? string.Empty : string.Format("W. sum: {0:n0}", obj));
+
+                     });
                  });
 
                  columns.AddColumn(column =>
@@ -183,7 +196,7 @@ namespace PdfReportSamples.StackedProperties
                      column.Order(4);
                      column.Width(2);
                      column.HeaderCell("Clearance Date");//------- Main Header Row
-                     column.AddHeadingCell("Destination", mergeHeaderCell: false);//------- Extra Header Row - 1                     
+                     column.AddHeadingCell("Destination", mergeHeaderCell: false);//------- Extra Header Row - 1
                      column.ColumnItemsTemplate(itemsTemplate =>
                      {
                          itemsTemplate.XHtml();
@@ -213,7 +226,7 @@ namespace PdfReportSamples.StackedProperties
                      column.Order(5);
                      column.Width(3);
                      column.HeaderCell("Description");//------- Main Header Row
-                     column.AddHeadingCell(string.Empty, mergeHeaderCell: false);//------- Extra Header Row - 1                     
+                     column.AddHeadingCell(string.Empty, mergeHeaderCell: false);//------- Extra Header Row - 1
                  });
              })
              .MainTableEvents(events =>

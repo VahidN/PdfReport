@@ -182,6 +182,7 @@
     <Compile Include="SingleEntity\Document.cs" />
     <Compile Include="SingleEntity\Rpt.cs" />
     <Compile Include="SingleEntity\SingleEntityPdfReport.cs" />
+    <Compile Include="StackedProperties\CustomSum.cs" />
     <Compile Include="VectorBarChart\VectorBarChartPdfReport.cs" />
     <Compile Include="VectorPieChart\VectorPieChartPdfReport.cs" />
     <Compile Include="ProgressReport\ProgressReportPdfReport.cs" />
