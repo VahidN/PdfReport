@@ -56,7 +56,8 @@ namespace PdfReportSamples.Grouping
                      ShowOneGroupPerPage = false,
                      SpacingBeforeAllGroupsSummary = 5f,
                      NewGroupAvailableSpacingThreshold = 150,
-                     SpacingAfterAllGroupsSummary = 5f
+                     SpacingAfterAllGroupsSummary = 5f,
+                     ShowAllGroupsSummaryRow = false // its default value is true
                  });
                  table.SpacingAfter(4f);
              })

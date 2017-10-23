@@ -53,9 +53,9 @@ namespace PdfReportSamples.StackedProperties
              })
              .MainTableSummarySettings(summarySettings =>
              {
-                 summarySettings.OverallSummarySettings("Summary");
-                 summarySettings.PreviousPageSummarySettings("Previous Page Summary");
-                 summarySettings.PageSummarySettings("Page Summary");
+                 summarySettings.OverallSummarySettings("Overall\nSummary");
+                 summarySettings.PreviousPageSummarySettings("Previous Page\n Summary");
+                 summarySettings.PageSummarySettings("Page\n Summary");
              })
              .MainTableDataSource(dataSource =>
              {
@@ -183,7 +183,7 @@ namespace PdfReportSamples.StackedProperties
                      {
                          aggregateFunction.CustomAggregateFunction(new CustomSum());
                          aggregateFunction.DisplayFormatFormula(obj => obj == null || string.IsNullOrEmpty(obj.ToString())
-                                    ? string.Empty : string.Format("W. sum: {0:n0}", obj));
+                                    ? string.Empty : string.Format("Weight sum\n {0:n0}", obj));
 
                      });
                  });

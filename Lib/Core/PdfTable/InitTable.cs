@@ -86,8 +86,18 @@ namespace PdfRpt.Core.PdfTable
                                       {
                                           SharedData = SharedData,
                                           MainTable = MainTable,
-                                          CurrentRowInfoData = CurrentRowInfoData
-                                      };
+                                          CurrentRowInfoData = CurrentRowInfoData,
+                                          ShowAllGroupsSummaryRow = showAllGroupsSummaryRow
+            };
+        }
+
+        bool showAllGroupsSummaryRow
+        {
+            get
+            {
+                if (SharedData.PageSetup.GroupsPreferences == null) return true;
+                return SharedData.PageSetup.GroupsPreferences.ShowAllGroupsSummaryRow;
+            }
         }
 
         private void setDefaultSpacingAfterForGroups()

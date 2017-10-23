@@ -45,12 +45,19 @@ namespace PdfRpt.Core.Contracts
         public float NewGroupAvailableSpacingThreshold { set; get; }
 
         /// <summary>
+        /// Indicates visibility of the groups SummaryRows
+        /// Its default value is true
+        /// </summary>
+        public bool ShowAllGroupsSummaryRow { set; get; }
+
+        /// <summary>
         /// ctor.
         /// </summary>
         public GroupsPreferences()
         {
             SpacingBeforeAllGroupsSummary = 15f;
             NewGroupAvailableSpacingThreshold = 150f;
+            ShowAllGroupsSummaryRow = true;
         }
     }
 }
