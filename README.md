@@ -33,6 +33,6 @@ The project used to be hosted in [CodePlex](https://pdfreport.codeplex.com) and 
 
 About the licenses
 -----------------
-Before staring using the `PdfReport`, you should be aware of that, this library has the following dependencies and you should be agree by their terms and conditions:
+Before starting using the `PdfReport`, you should be aware of that, this library has the following dependencies and you should be agree by their terms and conditions:
 - iTextSharp: [AGPL](http://itextpdf.com/terms-of-use/index.php) (It's not a free license and you need to pay for it. Contact them for more info)
 - EPPlus: [LGPL](https://github.com/JanKallman/EPPlus/blob/master/LICENSE)
