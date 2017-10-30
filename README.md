@@ -33,5 +33,5 @@ The project used to be hosted in [CodePlex](https://pdfreport.codeplex.com) and 
 
 About the licenses
 -----------------
-iTextSharp: [AGPL](http://itextpdf.com/terms-of-use/index.php) (It's not a free license and you need to pay for it. Contact them for more info)
-EPPlus: [LGPL ](https://github.com/JanKallman/EPPlus/blob/master/LICENSE)
+- iTextSharp: [AGPL](http://itextpdf.com/terms-of-use/index.php) (It's not a free license and you need to pay for it. Contact them for more info)
+- EPPlus: [LGPL](https://github.com/JanKallman/EPPlus/blob/master/LICENSE)
