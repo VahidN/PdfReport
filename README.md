@@ -34,6 +34,16 @@ The project used to be hosted in [CodePlex](https://pdfreport.codeplex.com) and 
 About the licenses
 -----------------
 Before starting using the `PdfReport`, you should be aware of that, this library has the following dependencies and you should be agree by their terms and conditions:
-- iTextSharp: [AGPL](http://itextpdf.com/terms-of-use/index.php). More info [here](https://developers.itextpdf.com/question/itext-java-library-free-charge-or-are-there-any-fees-be-paid) & [here](https://itextpdf.com/blog/how-do-i-make-sure-my-software-complies-agpl-how-can-i-use-itext-free). 
+- iTextSharp: 
 - EPPlus: [LGPL](https://github.com/JanKallman/EPPlus/blob/master/LICENSE)
 - PdfReport: [LGPL](https://github.com/VahidN/PdfReport/blob/master/LICENSE.md)
+
+
+Licenses
+-----------------
+
+| Library                 | License  |
+| ----------------------- | :------: | 
+| iTextSharp              | [AGPL](http://itextpdf.com/terms-of-use/index.php). More info [here](https://developers.itextpdf.com/question/itext-java-library-free-charge-or-are-there-any-fees-be-paid) & [here](https://itextpdf.com/blog/how-do-i-make-sure-my-software-complies-agpl-how-can-i-use-itext-free)|
+| EPPlus                  | [LGPL](https://github.com/JanKallman/EPPlus/blob/master/LICENSE) |
+|PdfReport                | [LGPL](https://github.com/VahidN/PdfReport/blob/master/LICENSE.md) |
