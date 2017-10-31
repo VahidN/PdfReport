@@ -25,20 +25,7 @@ Usage
  -  [Introducing PdfReport](http://www.codeproject.com/Articles/492055/Introducing-PdfRport)
  -  [ PDFReport Samples List](https://github.com/VahidN/PdfReport/wiki/PDFReport-Samples-List)
 
-
-History
------------------
-The project used to be hosted in [CodePlex](https://pdfreport.codeplex.com) and has since been migrated here.
-
-
-About the licenses
------------------
-Before starting using the `PdfReport`, you should be aware of that, this library has the following dependencies and you should be agree by their terms and conditions:
-- iTextSharp: 
-- EPPlus: [LGPL](https://github.com/JanKallman/EPPlus/blob/master/LICENSE)
-- PdfReport: [LGPL](https://github.com/VahidN/PdfReport/blob/master/LICENSE.md)
-
-
+ 
 Licenses
 -----------------
 
