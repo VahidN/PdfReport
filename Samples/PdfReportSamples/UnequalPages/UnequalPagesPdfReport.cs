@@ -4,9 +4,9 @@ using PdfReportSamples.Models;
 using PdfRpt.Core.Contracts;
 using PdfRpt.FluentInterface;
 
-namespace PdfReportSamples.IList
+namespace PdfReportSamples.UnequalPages
 {
-    public class IListPdfReport
+    public class UnequalPagesPdfReport
     {
         public IPdfReportData CreatePdfReport()
         {
@@ -71,9 +71,9 @@ namespace PdfReportSamples.IList
             })
             .MainTableSummarySettings(summarySettings =>
             {
-                summarySettings.OverallSummarySettings("Summary", showOnEachPage: true);
-                summarySettings.PreviousPageSummarySettings("Previous Page Summary", showOnEachPage: true);
-                summarySettings.PageSummarySettings("Page Summary", showOnEachPage: true);
+                summarySettings.OverallSummarySettings("Summary");
+                summarySettings.PreviousPageSummarySettings("Previous Page Summary");
+                summarySettings.PageSummarySettings("Page Summary");
             })
             .MainTableColumns(columns =>
             {
@@ -107,10 +107,10 @@ namespace PdfReportSamples.IList
                     column.Width(3);
                     column.HeaderCell("Name", horizontalAlignment: HorizontalAlignment.Left);
                     column.Font(font =>
-                        {
-                            font.Size(10);
-                            font.Color(System.Drawing.Color.Brown);
-                        });
+                    {
+                        font.Size(10);
+                        font.Color(System.Drawing.Color.Brown);
+                    });
                 });
 
                 columns.AddColumn(column =>
@@ -150,6 +150,10 @@ namespace PdfReportSamples.IList
             .MainTableEvents(events =>
             {
                 events.DataSourceIsEmpty(message: "There is no data available to display.");
+                events.MainTableAdded(args =>
+                    {
+                        // args.PdfDoc.
+                    });
             })
             .Export(export =>
             {

@@ -23,9 +23,9 @@ namespace PdfRpt.Core.Helper.HtmlToPdf
         /// </summary>
         public override Font GetFont(string fontname, string encoding, bool embedded, float size, int style, BaseColor color, bool cached)
         {
-            return FontFactory.GetFont(
-                string.IsNullOrEmpty(fontname) ? _defaultFont.Familyname : fontname,
-                BaseFont.IDENTITY_H, BaseFont.EMBEDDED, size, style, color);
+            if (string.IsNullOrEmpty(fontname))
+                return _defaultFont;
+            return FontFactory.GetFont(fontname, BaseFont.IDENTITY_H, BaseFont.EMBEDDED, size, style, color);
         }
     }
 }

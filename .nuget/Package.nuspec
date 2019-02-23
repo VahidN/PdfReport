@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>PdfReport</id>
-    <version>2.9.2</version>
+    <version>2.9.3</version>
     <authors>Vahid Nasiri</authors>
     <owners>Vahid Nasiri</owners>
     <licenseUrl>https://github.com/VahidN/PdfReport/blob/master/LICENSE.md</licenseUrl>
@@ -15,10 +15,10 @@
     <tags>PdfReport Excel Export iTextSharp PDF Report Reporting Persian</tags>
     <dependencies>
       <group>
-        <dependency id="iTextSharp" version="5.5.12"/>
-        <dependency id="itextsharp.pdfa" version="5.5.12"/>
-        <dependency id="itextsharp.xmlworker" version="5.5.12"/>
-        <dependency id="EPPlus" version="4.1.1"/>
+        <dependency id="iTextSharp" version="5.5.13"/>
+        <dependency id="itextsharp.pdfa" version="5.5.13"/>
+        <dependency id="itextsharp.xmlworker" version="5.5.13"/>
+        <dependency id="EPPlus" version="4.5.3.1"/>
       </group>
     </dependencies>
   </metadata>

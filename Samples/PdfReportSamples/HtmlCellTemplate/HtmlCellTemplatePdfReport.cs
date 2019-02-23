@@ -12,6 +12,8 @@ namespace PdfReportSamples.HtmlCellTemplate
     {
         public IPdfReportData CreatePdfReport()
         {
+            var rand1 = new Random();
+
             return new PdfReport().DocumentPreferences(doc =>
             {
                 doc.RunDirection(PdfRunDirection.LeftToRight);
@@ -123,8 +125,18 @@ namespace PdfReportSamples.HtmlCellTemplate
                              var user = list.GetSafeStringValueOf("User");
                              var photo = list.GetSafeStringValueOf("Photo");
                              var image = string.Format("<img src='{0}' />", photo);
+
+                             if (rand1.Next(10000) % 2 == 0)
+                             {
+                                 return @"<table style='width: 100%; font-size:9pt; border: 0;'>
+									<tr>
+                                       <td align='center' style='width: 100%; margin: 10px; font-size:9pt; border-bottom: 1px solid red;'>" + user + @"</td>
+                                    </tr>
+								</table>";
+                             }
+
                              return
-                                    @"<table style='width: 100%; font-size:9pt;'>
+                                 @"<table style='width: 100%; font-size:9pt;'>
 												<tr>
 													<td align='center'>" + user + @"</td>
 												</tr>

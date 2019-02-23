@@ -86,13 +86,20 @@ namespace PdfRpt.Core.Helper.HtmlToPdf
         private static void fixNestedTablesRunDirection(IElement element)
         {
             var table = element as PdfPTable;
-            if (table == null)
+            if (table?.Rows == null || table.Rows.Count == 0)
                 return;
 
             table.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
             foreach (var row in table.Rows)
             {
-                foreach (var cell in row.GetCells())
+                var innerCells = row.GetCells();
+
+                if (innerCells == null  || innerCells.Length == 0)
+                {
+                    continue;
+                }
+
+                foreach (var cell in innerCells)
                 {
                     cell.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
 
