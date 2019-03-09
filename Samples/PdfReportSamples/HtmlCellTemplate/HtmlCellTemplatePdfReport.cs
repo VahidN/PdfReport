@@ -136,18 +136,19 @@ namespace PdfReportSamples.HtmlCellTemplate
                              }
 
                              return
-                                 @"<table style='width: 100%; font-size:9pt;'>
+                                 @"<table style='width: 100%; font-size:9pt; border: 1px solid khaki; border-collapse: collapse;'>
 												<tr>
-													<td align='center'>" + user + @"</td>
+													<td align='center' style='border: 1px solid khaki; border-collapse: collapse;'>" + user + @"</td>
 												</tr>
 												<tr>
-													<td align='center'>" + image + @"</td>
+													<td align='center' style='border: 1px solid khaki; border-collapse: collapse;'>" + image + @"</td>
 												</tr>
 									   </table>
 									 ";
                          });
                      column.ColumnItemsTemplate(template =>
                          {
+                             //template.CustomTemplate(new MyCustomXHtml());
                              template.XHtml();
                          });
                  });
